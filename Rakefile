@@ -1,6 +1,6 @@
 
-task :default => 'mode.vim'
+task :default => :mode_vim
 
-task 'mode.vim' do
+file :mode_vim => "mode.vim" do
   sh 'cp mode.vim ~/.vim/plugin/'
 end

@@ -13,7 +13,7 @@ let s:mode_green    = ' Green  '
 let s:mode_refactor = 'Refactor'
 
 " Key binds
-nmap <silent> <leader>m<C-m> : call <SID>ToggleMode()<CR>
+nmap <silent> <leader>m<C-m> : call <SID>RotateMode()<CR>
 nmap <silent> <leader>mc     : call <SID>ModeClear()<CR>
 nmap <silent> <leader>mt     : call <SID>ModeThink()<CR>
 nmap <silent> <leader>mg     : call <SID>ModeGreen()<CR>
@@ -31,7 +31,7 @@ let s:red      = escape(s:mode_red, ' ')
 let s:green    = escape(s:mode_green, ' ')
 let s:refactor = escape(s:mode_refactor, ' ')
 
-func! s:ToggleMode()
+func! s:RotateMode()
   let s:my_mode = (s:my_mode + 1) % 4 
   if     s:my_mode == 0 | call s:ModeThink()
   elseif s:my_mode == 1 | call s:ModeRed()

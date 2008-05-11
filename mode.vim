@@ -80,8 +80,8 @@ func! s:SetHighlight(color)
 endfunc
 
 func! s:EndorHere(flg, val)
-  if   exists(a:flg) | return ''
-  else               | return a:val
+  if exists(a:flg) | return ''
+  else             | return a:val
   endif
 endfunc
 

@@ -9,7 +9,7 @@ mode.vim - TDD mode control script for vim
 <leader>m<C-m> : rotate mode (think -> red -> green -> refactor)
 
 # Settings
-s:eflg
+s:color_bar
   0 : use short color bar
   1 : use logn color bar
 mode name

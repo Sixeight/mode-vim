@@ -1,0 +1,22 @@
+
+mode.vim - TDD mode control script for vim
+
+# Key-bind
+<leader>mt     : mode think
+<leader>mr     : mode red
+<leader>mg     : mode green
+<leader>mf     : mode refactor
+<leader>m<C-m> : rotate mode (think -> red -> green -> refactor)
+
+# Settings
+s:eflg
+  0 : use short color bar
+  1 : use logn color bar
+mode name
+  s:mode_think
+  s:mode_red
+  s:mode_green
+  s:mode_refactor
+
+# Known bugs
+Can't control tow or more mode at same time, because share User1 highlight group and my_mode variable.

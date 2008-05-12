@@ -13,10 +13,10 @@ let s:mode_green    = ' Green  '
 let s:mode_refactor = 'Refactor'
 
 " Mode Color
-let s:think_color    = 'white'
-let s:red_color      = 'red'
-let s:green_color    = 'green'
-let s:refactor_color = 'yellow'
+let s:color_think    = 'white'
+let s:color_red      = 'red'
+let s:color_green    = 'green'
+let s:color_refactor = 'yellow'
 
 " Key binds
 nmap <silent> <leader>m<C-m> : call <SID>RotateMode()<CR>
@@ -28,7 +28,7 @@ nmap <silent> <leader>mf     : call <SID>ModeRefactor()<CR>
 "
 " --End of settings--
 
-" --Script main
+" --Script main--
 let s:original = escape(&statusline, ' ')
 if s:color_bar == 1 | let s:endflg = 1 |  endif
 
@@ -55,22 +55,22 @@ endfunc
 
 func! s:ModeThink()
   let b:my_mode = 0
-  call s:SetStatusLine(s:think, s:think_color)
+  call s:SetStatusLine(s:think, s:color_think)
 endfunc
 
 func! s:ModeRed()
   let b:my_mode = 1
-  call s:SetStatusLine(s:red, s:red_color)
+  call s:SetStatusLine(s:red, s:color_red)
 endfunc
 
 func! s:ModeGreen()
   let b:my_mode = 2
-  call s:SetStatusLine(s:green, s:green_color)
+  call s:SetStatusLine(s:green, s:color_green)
 endfunc
 
 func! s:ModeRefactor()
   let b:my_mode = 3
-  call s:SetStatusLine(s:refactor, s:refactor_color)
+  call s:SetStatusLine(s:refactor, s:color_refactor)
 endfunc
 
 func! s:SetStatusLine(mode, color)

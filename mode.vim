@@ -4,13 +4,19 @@
 " Color bar settings
 " 0 => short color bar
 " 1 => long color bar
-let s:color_bar = 0 
+let s:color_bar = 0
 
 " Mode name
 let s:mode_think    = ' Think  '
 let s:mode_red      = '  Red   '
 let s:mode_green    = ' Green  '
 let s:mode_refactor = 'Refactor'
+
+" Mode Color
+let s:think_color    = 'white'
+let s:red_color      = 'red'
+let s:green_color    = 'green'
+let s:refactor_color = 'yellow'
 
 " Key binds
 nmap <silent> <leader>m<C-m> : call <SID>RotateMode()<CR>
@@ -49,34 +55,27 @@ endfunc
 
 func! s:ModeThink()
   let b:my_mode = 0
-  call s:SetHighlight('white')
-  call s:SetStatusLine(s:think)
+  call s:SetStatusLine(s:think, s:think_color)
 endfunc
 
 func! s:ModeRed()
   let b:my_mode = 1
-  call s:SetHighlight('red')
-  call s:SetStatusLine(s:red)
+  call s:SetStatusLine(s:red, s:red_color)
 endfunc
 
 func! s:ModeGreen()
   let b:my_mode = 2
-  call s:SetHighlight('green')
-  call s:SetStatusLine(s:green)
+  call s:SetStatusLine(s:green, s:green_color)
 endfunc
 
 func! s:ModeRefactor()
   let b:my_mode = 3
-  call s:SetHighlight('yellow')
-  call s:SetStatusLine(s:refactor)
+  call s:SetStatusLine(s:refactor, s:refactor_color)
 endfunc
 
-func! s:SetStatusLine(mode)
-  exe 'setlocal statusline=%1*[' . a:mode . ']' . s:EndorHere('s:endflg', '%*') . '\ ' . s:original . '%=%*'
-endfunc
-
-func! s:SetHighlight(color)
+func! s:SetStatusLine(mode, color)
   exe 'hi User1 ctermfg=' . a:color
+  exe 'setlocal statusline=%1*[' . a:mode . ']' . s:EndorHere('s:endflg', '%*') . '\ ' . s:original . '%=%*'
 endfunc
 
 func! s:EndorHere(flg, val)

@@ -32,41 +32,41 @@ let s:green    = escape(s:mode_green, ' ')
 let s:refactor = escape(s:mode_refactor, ' ')
 
 func! s:RotateMode()
-  let s:my_mode = (s:my_mode + 1) % 4 
-  if     s:my_mode == 0 | call s:ModeThink()
-  elseif s:my_mode == 1 | call s:ModeRed()
-  elseif s:my_mode == 2 | call s:ModeGreen()
-  elseif s:my_mode == 3 | call s:ModeRefactor()
+  let b:my_mode = (b:my_mode + 1) % 4
+  if     b:my_mode == 0 | call s:ModeThink()
+  elseif b:my_mode == 1 | call s:ModeRed()
+  elseif b:my_mode == 2 | call s:ModeGreen()
+  elseif b:my_mode == 3 | call s:ModeRefactor()
   endif
 endfunc
 
 func! s:ModeClear()
-  let s:my_mode = -1
+  let b:my_mode = -1
   hi clear User1
   hi User1 cterm=inverse,bold
   exe 'setlocal statusline=' . s:original
 endfunc
 
 func! s:ModeThink()
-  let s:my_mode = 0
+  let b:my_mode = 0
   call s:SetHighlight('white')
   call s:SetStatusLine(s:think)
 endfunc
 
 func! s:ModeRed()
-  let s:my_mode = 1
+  let b:my_mode = 1
   call s:SetHighlight('red')
   call s:SetStatusLine(s:red)
 endfunc
 
 func! s:ModeGreen()
-  let s:my_mode = 2
+  let b:my_mode = 2
   call s:SetHighlight('green')
   call s:SetStatusLine(s:green)
 endfunc
 
 func! s:ModeRefactor()
-  let s:my_mode = 3
+  let b:my_mode = 3
   call s:SetHighlight('yellow')
   call s:SetStatusLine(s:refactor)
 endfunc

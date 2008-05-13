@@ -7,10 +7,10 @@
 let s:color_bar = 0
 
 " Mode name
-let s:mode_think    = ' Think  '
-let s:mode_red      = '  Red   '
-let s:mode_green    = ' Green  '
-let s:mode_refactor = 'Refactor'
+let s:mode_think    = '[ Think  ]'
+let s:mode_red      = '[  Red   ]'
+let s:mode_green    = '[ Green  ]'
+let s:mode_refactor = '[Refactor]'
 
 " Mode Color
 let s:color_think    = 'white'
@@ -75,7 +75,7 @@ endfunc
 
 func! s:SetStatusLine(mode, color)
   exe 'hi User1 ctermfg=' . a:color
-  exe 'setlocal statusline=%1*[' . a:mode . ']' . s:EndorHere('s:endflg', '%*') . '\ ' . s:original . '%=%*'
+  exe 'setlocal statusline=%1*' . a:mode . s:EndorHere('s:endflg', '%*') . '\ ' . s:original . '%=%*'
 endfunc
 
 func! s:EndorHere(flg, val)

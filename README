@@ -20,10 +20,10 @@ Mode name
   s:mode_refactor
 
 Mode color
-  s:think_color
-  s:red_color
-  s:green_color
-  s:refactor_color
+  s:color_think
+  s:color_red
+  s:color_green
+  s:color_refactor
 
 Color name
   -----------------------------------------------
@@ -48,4 +48,4 @@ Color name
   -----------------------------------------------
 
 # Known bugs
-Can't control tow or more mode at same time, because share User1 highlight group and my_mode variable.
+Can't control tow or more mode at same time, because share User1 highlight group .

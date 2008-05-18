@@ -27,7 +27,7 @@ nmap <silent> <leader>mf :call <SID>ChangeMode('refactor')<CR>
 let s:original = escape(&statusline, ' ')
 let s:hlend = (s:color_bar == 1) ? '\ ' : '%*\ '
 
-let s:mode_list = {'think'   : [0, s:color_think,    escape(s:mode_think, ' ')],
+let s:mode_dict = {'think'   : [0, s:color_think,    escape(s:mode_think, ' ')],
                 \  'red'     : [1, s:color_red,      escape(s:mode_red, ' ')],
                 \  'green'   : [2, s:color_green,    escape(s:mode_green, ' ')],
                 \  'refactor': [3, s:color_refactor, escape(s:mode_refactor, ' ')]}
@@ -49,7 +49,7 @@ func! s:RotateMode()
 endfunc
 
 func! s:ChangeMode(mode)
-  let m = eval("s:mode_list['" . a:mode. "']")
+  let m = eval("s:mode_dict['" . a:mode. "']")
   let b:current_mode = m[0]
   exe 'hi User1 ctermfg=' . m[1]
   exe 'setlocal statusline=%1*' . m[2] . s:hlend . s:original . '%=%*'
